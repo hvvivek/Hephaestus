@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+<% if @user.nil? %>
+<a href="/auth/google_oauth2">Login via Google</a>
+<a href="/auth/facebook">Login via Facebook</a>
+<a href="/auth/linkedin">Login via LinkedIn</a>
+<% else %>
+    <h1><%= @user.name %></h1>
+    <a href="/sessions/destroy">Logout</a>
+
+<% end %>

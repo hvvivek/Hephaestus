@@ -60,3 +60,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#For OAuth2 via Google
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin-oauth2'
+
+
