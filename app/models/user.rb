@@ -1,9 +1,10 @@
 class User < ApplicationRecord
 
     def self.from_omniauth(auth)
-        user = User.find_by email: auth.info.email
-        if user.nil?
-            where(provider: auth.provider, email: auth.info.email).first_or_initialize.tap do |user|
+        # user = User.find_by email: auth.info.email
+        # logger.info user
+        # if user.nil?
+            where(email: auth.info.email).first_or_initialize.tap do |user|
                 user.provider = auth.provider
                 user.uid = auth.uid
                 user.name = auth.info.name
@@ -15,8 +16,8 @@ class User < ApplicationRecord
                 # logger.info user.name
                 user.save!
             end
-        end
-        user
+        # end
+        # user
     end
     
 

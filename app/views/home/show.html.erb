@@ -1,10 +1,87 @@
-<h1>Welcome</h1>
-<% if @user.nil? %>
-<a href="/auth/google_oauth2">Login via Google</a>
-<a href="/auth/facebook">Login via Facebook</a>
-<a href="/auth/linkedin">Login via LinkedIn</a>
-<% else %>
-    <h1><%= @user.name %></h1>
-    <a href="/sessions/destroy">Logout</a>
 
-<% end %>
+<div class="container-fluid">
+        <div class="row">
+            <nav id="user_bar" class="col-12">
+                <div id="logo">
+                    <%= image_tag "logo_v3.png" %>
+                    <button>aulë</button>
+                </div>
+                <div id="content-nav">
+                    <button class="active">Search</button>
+                    <button>Match</button>
+                    <button>Ecosystems</button>
+                </div>
+                <div id="profile">
+                    <div class="profile_photo_bg"></div>
+                    <% if @user.nil? %>
+                    <%= image_tag "user.jpg", :class => 'profile_photo' %>
+                    <% else %>
+                    <%= image_tag @user.image, :class => 'profile_photo' %>
+                    <% end %>
+                </div>
+
+                <% if @user.nil? %>
+                    <div id="oauth">
+                        <div>
+                            <div class="profile_photo_bg"></div>
+                        <a href="/auth/facebook"><%= image_tag "facebook.png", :class => 'profile_photo' %></a>
+                        </div>
+                        
+                        <div>
+                            <div class="profile_photo_bg"></div>
+                        <a href="/auth/google_oauth2"><%= image_tag "google.jpg", :class => 'profile_photo' %></a>
+                        </div>
+
+                        <div>
+                            <div class="profile_photo_bg"></div>
+                        <%= link_to "/auth/linkedin" do %>
+                        <%= image_tag "linkedin.png", :class => 'profile_photo' %>
+                        <% end %>
+                        </div>
+                    </div>
+                <% else %>
+                    <div id="user-settings">
+                        <ul>
+                            <li><%= image_tag @user.image %></li>
+                            <li class="name"><%= @user.name %></li>
+                            <li class="email"><%= @user.email %></li>
+                            <li class="btn focus-btn">Settings</li>
+                            <div class="dropdown-divider"></div>
+                            <li class="btn"><a href="sessions/destroy/">Sign Out</a></li>
+                        </ul>
+                    </div>
+                <% end %>
+
+            </nav>
+            </div>
+<div class="container">
+
+            <div id="content" class="col-12">
+                <div class="v-center-wrapper">
+                    <div id="maker-doodle">
+                        <!-- <img src="assets/images/maker_1.jpeg" alt="">
+                        <img src="assets/images/maker_2.jpg" alt=""> -->
+                        <div class="bg bg-1"></div>
+                        <div class="bg bg-2"></div>
+                        <div class="image img-1">
+                            <%= image_tag "maker_1.jpeg"%>
+                        </div>
+                        <div class="image img-2">
+                            <%= image_tag "maker_2.jpg"%>
+                        </div>
+                        <div class="typewriter"><h1>create</h1></div>
+                    </div>
+                    <div id="search" class="row">
+                        <form action="" class="col-8 offset-2">
+                            <input class="col-12" type="text" name="search" id="search_input">
+                            <button class="submit">Search</button>
+                        </form>
+                        <%= image_tag "search.jpg" %>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    </div>
